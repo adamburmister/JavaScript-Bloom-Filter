@@ -1,0 +1,3 @@
+[submodule "Hash"]
+	path = Hash
+	url = git@github.com:michaelsbradleyjr/Hash.git
