@@ -8,13 +8,22 @@
 	<script type="text/javascript" src="bloom_filter.js"></script>
 	<script type="text/javascript" src="sha1.js"></script>
 	<script type="text/javascript">
-	var bf = new BloomFilter().add(["coke","pepsi","redbull","sugarfree redbull","v","appletiser","orange juice","apple juice"]);
+	var drinks = ["coke","pepsi","redbull","v","appletiser","orange juice","apple juice"];
+	var bf = new BloomFilter(100).add(drinks);
 	
-	console.log("Has Coke?", bf.check("coke"));
-	console.log("Has Diet Coke?", bf.check("diet coke"));
+  for(var i=0; i<drinks.length; i++) {
+    var d = drinks[i];
+    console.log("Has " + d + "?", bf.has(d));
+  }
+  
+  for(var i=0; i<drinks.length; i++) {
+    var d = "diet " + drinks[i];
+    console.log("Has " + d + "?", bf.has(d));
+  }
 	</script>
 </head>
 <body>
-
+<h1>Bloom Filter</h1>
+<p>See the source and Firebug console output for details.</p>
 </body>
 </html>
