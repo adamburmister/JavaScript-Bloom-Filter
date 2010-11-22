@@ -11,14 +11,8 @@ function BloomFilter(){
 }
 
 BloomFilter.prototype = {
-  var errorRate = 0.001;
-  var capacity = 100;
-  
-	var keyCount = 0;
-	
+  var errorRate = 0, capacity = 0, filterLength = 0, keyCount = 0;
 	var filter = [];
-	var filterLength = 0;
-	
 	var hashFunc = function(a){ return a; }; // The hash function
   
   /**
@@ -27,9 +21,9 @@ BloomFilter.prototype = {
    * @param hashFunc {Function} The function to hash the input values
    */
 	init: function(capacity, errorRate, hashFunc){
-	  this.hashFunc = (hashFunc ? hashFunc : Hash.SHA1.hash);
-	  this.capacity = capacity;
-	  this.errorRate = errorRate;
+	  this.capacity  = capacity  || 100;
+	  this.errorRate = errorRate || 0.001;
+	  this.hashFunc  = hashFunc  || Hash.SHA1.hash;
 	  
 		var ret = this._calcShortestFilterLength(this.capacity, this.errorRate);
 		this.filterLength = ret[0];

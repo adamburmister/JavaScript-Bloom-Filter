@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>Test Bloom Filter</title>
+	<script type="text/javascript" src="bloom_filter.js"></script>
+	<script type="text/javascript" src="sha1.js"></script>
+	<script type="text/javascript">
+	var bf = new BloomFilter().add(["coke","pepsi","redbull","sugarfree redbull","v","appletiser","orange juice","apple juice"]);
+	
+	console.log("Has Coke?", bf.check("coke"));
+	console.log("Has Diet Coke?", bf.check("diet coke"));
+	</script>
+</head>
+<body>
+
+</body>
+</html>
