@@ -1,9 +1,9 @@
 // Bloom Filter in JavaScript
 // 2010-11-22 Adam Burmister, Mojolly.com
 // license: GPL
-// original perl version: http://search.cpan.org/~mceglows/Bloom-Filter-1.0/Filter.pm
 // original js version: http://la.ma.la/misc/js/bloomfilter/bloomfilter.js
 // 2007-09-14 ma.la
+// original perl version: http://search.cpan.org/~mceglows/Bloom-Filter-1.0/Filter.pm
 
 function BloomFilter(capacity, errorRate, hasFunc){
 	this.init(capacity, errorRate, hasFunc)
@@ -15,6 +15,7 @@ BloomFilter.prototype = {
   capacity: 0, 
   filterLength: 0, 
   keyCount: 0,
+  //numHashFuncs: 0, // k - I've never used this value, need to understand it's function
 	filter: [],
 	hashFunc: function(a){ return a; }, // The hash function
   
@@ -30,7 +31,7 @@ BloomFilter.prototype = {
 	  
 		var ret = this._calcShortestFilterLength(this.capacity, this.errorRate);
 		this.filterLength = ret[0];
-		this.numHashFuncs = ret[1];
+		//this.numHashFuncs = ret[1];
 		
 		this.filter = new Array(this.filterLength);
 	},
